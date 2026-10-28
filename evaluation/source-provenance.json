@@ -1,0 +1,15 @@
+{
+  "repository": "https://github.com/0xquqi/EZbot-project-research-skill",
+  "observed_head": "00e13c8dd1f2f2e79d6fa2a9b5edb28b925617a2",
+  "read_date": "2026-10-28",
+  "snapshot_kind": "local_working_tree",
+  "files": {
+    "AGENTS.md": "7f8c163d23ff5d975e9382904a44590810f4161ebc3c4fccc3cf4a86e0102f5b",
+    "skills/ezbot-project-research/SKILL.md": "43405b145a1c0ed0b090905f62ad6ecbeea41d4c05bd55df187b171a61ed6b0f",
+    "skills/ezbot-project-research/references/automatic-research.md": "f96e05fdb9876819b9b29df8aa364c3bf3247c196848628cd4609c7b899fabe0",
+    "skills/ezbot-project-research/references/web-research.md": "c08f88e90b6ca2c7275cad2a5cfe9d97a97b1b4709ee4cdd9550779bf2f58ff8",
+    "skills/ezbot-project-research/references/contract-research.md": "9f07ca50dc2e84c411af2272715609cefce244ca11370162960320e1ab717dc4",
+    "skills/ezbot-project-research/references/participation.md": "99e7ffab510eb287cce2a38b3b9c4c374ae5bd4224e6c7c764713c0650e5bffa",
+    "skills/ezbot-project-research/references/question-cards.json": "7447052740430ab87e29f38ff5ada6025f8f9e40b5f1e10a068cdeb69503319c"
+  }
+}

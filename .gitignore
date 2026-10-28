@@ -1,0 +1,17 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+*.pem
+*.key
+*.sqlite*
+state.json
+runtime/
+evidence/
+.private/
+*.png
+*.jpg
+*.zip
+!EZbot-Grok-Scout-v0.1.zip

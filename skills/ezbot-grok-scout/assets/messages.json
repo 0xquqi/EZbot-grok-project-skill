@@ -1,0 +1,17 @@
+{
+  "schema_version": 4,
+  "author_name": "曲奇",
+  "author_handle": "@0xquqi",
+  "author_url": "https://x.com/0xquqi",
+  "card_attribution": "Skill 作者：@0xquqi",
+  "disclaimer": "本内容为公开信息整理与有限研究，仅供参考，不构成投资建议或安全认证。请自主完成项目实际投研；作者不对项目安全、收益或履约提供保障。",
+  "startup_template": "开始搜索币安 Agent ID / Agentic Wallet 生态项目。\n\n本次范围：{window_start}—{window_end}（{timezone}）。\n运行方式：{run_mode}。\n交付内容：直接在聊天里按编号介绍项目是什么、怎么玩、费用与条件、当前进展、关键风险及官方入口；信息不足会明确说明。\n\n{customization_help}\n\n{card_attribution}\n{disclaimer}",
+  "no_results_template": "本轮未发现需要展示的新项目或重要变化。{material_limitation}",
+  "search_unavailable_template": "本轮搜索未完成：{reason}。这不能说明没有新项目。",
+  "customization_help": "你可以随时用自然语言调整：\n\n- 频率与时间：每隔多久搜索、回看多久、使用哪个时区，也可以暂停。\n- 搜索重点：增加生态内的关键词、重点账号或关注的项目类型。\n- 研究内容：重点看玩法、费用或合约风险，需要时展开深入研究。\n- 每轮数量：限制每轮介绍的项目数量；没有足够项目时不凑数。\n- 通知方式：发现即告知、定时汇总，或仅报告重要变化；无变化时保持安静。\n- 回复详略：简短介绍或详细解释，需要时再导出文件。\n\n例如：“每30分钟搜一次，重点关注免费领取和合成玩法，每轮最多介绍5个新项目，无变化不提醒。”",
+  "first_completion_title": "首轮试运行结束",
+  "completion_title": "本轮运行结束",
+  "completion_template": "{completion_title}。\n{result_summary}\n搜索范围：{window_start}—{window_end}（{timezone}）；项目核验时点见各项目。\n{run_mode}{material_limitation}\n{followup_hint}",
+  "completion_empty_template": "{completion_title}。\n本轮未发现需要展示的新项目或重要变化。\n搜索范围：{window_start}—{window_end}（{timezone}）。\n{run_mode}{material_limitation}",
+  "incomplete_template": "本轮未完成。\n{reason}\n{delivered_summary}{next_step}"
+}

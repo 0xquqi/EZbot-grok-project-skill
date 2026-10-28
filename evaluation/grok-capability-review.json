@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-28",
+  "method": "official-documentation-review",
+  "live_bot_test": false,
+  "confirmed_product_capabilities": [
+    {
+      "capability": "公开X检索与读取，无需账号连接或X API credits",
+      "url": "https://docs.x.ai/grok-bot/troubleshooting"
+    },
+    {
+      "capability": "持久云电脑、浏览器、终端、共享/workspace；临时目录和安装包不是持久基线",
+      "url": "https://docs.x.ai/grok-bot/computer-and-apps"
+    },
+    {
+      "capability": "Bot记忆保留偏好/事实/工作摘要；本Skill用文件保存精确项目状态",
+      "url": "https://docs.x.ai/grok-bot/bots"
+    },
+    {
+      "capability": "Skill方法与routine调度分开，新计划等到下一触发时点；可用Test时测试",
+      "url": "https://docs.x.ai/grok-bot/skills-routines-and-automations"
+    }
+  ],
+  "api_only_not_bot_guarantees": [
+    {
+      "capability": "关键词/语义/用户/线程模式；UTC日期过滤不等于小时过滤，线程不受该过滤",
+      "url": "https://docs.x.ai/developers/tools/x-search"
+    },
+    {
+      "capability": "web_search域名限制/视觉开关属于API参数；Bot用实际暴露工具映射",
+      "url": "https://docs.x.ai/developers/tools/web-search"
+    },
+    {
+      "capability": "临时Python沙箱无外部网络、不跨请求持久，不是Bot云终端",
+      "url": "https://docs.x.ai/developers/tools/code-execution"
+    },
+    {
+      "capability": "引用配置与来源元数据不保证每项论断被支持",
+      "url": "https://docs.x.ai/developers/tools/citations"
+    },
+    {
+      "capability": "采样/推理/缓存/续接由API客户端控制，聊天指令不能声称已设置",
+      "url": "https://docs.x.ai/developers/model-capabilities/text/best-practices"
+    }
+  ],
+  "design_inferences": [
+    "X发现后定向网页补证、动态页转浏览器、公开HTTP与计算转云终端，是本Skill适配策略。",
+    "未发现Bot文档承诺内置区块链审计/RPC，使用公开来源和可用终端完成只读核验。",
+    "/workspace/ezbot-grok-scout/<workflow-id>是本包目录约定，非官方预置服务；共享文件不构成Bot间安全隔离。"
+  ],
+  "unverified": [
+    "用户账号实际工具名称与签名、网络/RPC可达性、预装库、实际搜索召回与复杂机制推理。",
+    "状态原子保存和锁在具体Bot环境的执行效果；本次仅更新指令。"
+  ]
+}

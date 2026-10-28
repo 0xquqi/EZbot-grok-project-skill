@@ -1,0 +1,230 @@
+{
+  "schema_version": 3,
+  "version": "0.1",
+  "skill_content_sha256": "7356cc00958d1e22ea047a4d5c0fb25f98a8cc73b0bd14abdb32d76f4f41d051",
+  "files": {
+    "skills/ezbot-grok-scout/SKILL.md": "9c04de28c9c78e79524f8725b51d5209740a19e1f9a49c10012618988f31e096",
+    "skills/ezbot-grok-scout/assets/defaults.json": "9eb8b3304dbf0473c04a682197b0d558198e8175ce3c66ef32d69034f332e71d",
+    "skills/ezbot-grok-scout/assets/messages.json": "1566393f77c47340dbdd3a4bea424805a57a31afa6b6c3d920b7a143a67ce0c6",
+    "skills/ezbot-grok-scout/references/grok-runtime.md": "0aaae5e3d285818ab0437f4f13ecebe5b0745181fe12554968d673e137ca3a1f",
+    "skills/ezbot-grok-scout/references/startup.md": "430f9569622cd4efbce89091e8f3eadf81d8a711a9b8f2f603cc814adad73eb2",
+    "skills/ezbot-grok-scout/references/discovery-state.md": "cef6146531ce0caba8e1af5d6a6056dd4c65acd3dfa12bff0b01b5eb42feb025",
+    "skills/ezbot-grok-scout/references/research-flow.md": "fb6836ca3e1233e90aad7d02d085bcca5bcd5254983dc298ae6cc97bf4e3ee92",
+    "skills/ezbot-grok-scout/references/mechanism-questions.md": "2b2a16eb5e1800eb982cb894bdc5be7252ea09513800280303c3dab4752fb4a3",
+    "skills/ezbot-grok-scout/references/fees-contracts.md": "1e6b6d6151bf086da5889134c9aa17a704fd26715ebca7afc630d16c113ee23d",
+    "skills/ezbot-grok-scout/references/output.md": "94cf360e0643f43eb8d136f9d584bbb31ddfd3f7039361a33a555616a927de70",
+    "skills/ezbot-grok-scout/references/sources.md": "88361b9c25bc8bf81831c385e4f21da7648babbeb4faa75a68e11eec54a101be",
+    "GrokBot完整提示词.txt": "82aa26817d27bfbd94909da6d98ce9e4f1980173ee0f7cafc78b3c53382c3510",
+    "开始使用.txt": "956b2050548d2161a9bb5c0d5ef932356934b6f0be3d183c7903c63ed89d4ef5",
+    "给现有Grok对话的纠正指令.txt": "6909fa5a518197d54ecaa7a68700dc442c29127333929ac8005d28182599a540",
+    "LICENSE": "f09bb03e762d55c9796ffbe5f627adb39a56c09e97ef7c94708674ae217d4ec2"
+  },
+  "upstream": {
+    "repository": "https://github.com/0xquqi/EZbot-project-research-skill",
+    "observed_head": "00e13c8dd1f2f2e79d6fa2a9b5edb28b925617a2",
+    "read_date": "2026-10-28",
+    "snapshot_kind": "local_working_tree",
+    "files": {
+      "AGENTS.md": "7f8c163d23ff5d975e9382904a44590810f4161ebc3c4fccc3cf4a86e0102f5b",
+      "skills/ezbot-project-research/SKILL.md": "43405b145a1c0ed0b090905f62ad6ecbeea41d4c05bd55df187b171a61ed6b0f",
+      "skills/ezbot-project-research/references/automatic-research.md": "f96e05fdb9876819b9b29df8aa364c3bf3247c196848628cd4609c7b899fabe0",
+      "skills/ezbot-project-research/references/web-research.md": "c08f88e90b6ca2c7275cad2a5cfe9d97a97b1b4709ee4cdd9550779bf2f58ff8",
+      "skills/ezbot-project-research/references/contract-research.md": "9f07ca50dc2e84c411af2272715609cefce244ca11370162960320e1ab717dc4",
+      "skills/ezbot-project-research/references/participation.md": "99e7ffab510eb287cce2a38b3b9c4c374ae5bd4224e6c7c764713c0650e5bffa",
+      "skills/ezbot-project-research/references/question-cards.json": "7447052740430ab87e29f38ff5ada6025f8f9e40b5f1e10a068cdeb69503319c"
+    }
+  },
+  "validation": {
+    "yaml_parser": "Ruby Psych safe_load",
+    "frontmatter_constraints": "passed",
+    "local_links": {
+      "status": "passed",
+      "count": 12
+    },
+    "configuration": "passed",
+    "startup_rendering": "passed",
+    "visible_template_format": "plain text labels; no Markdown emphasis markers",
+    "completion_rendering": {
+      "status": "passed",
+      "success_and_empty_variants": 4,
+      "incomplete_variant": true
+    },
+    "self_contained_prompt": "all skill source files embedded verbatim",
+    "package_scope": "public instructions and configuration only; no runtime state or personal paths",
+    "quick_validate_py": "not run in this build; Ruby Psych parses YAML; not claimed passed",
+    "scenario_review": {
+      "version": "0.1",
+      "method": "manual-rule-review",
+      "scope": "Reviewed written decision paths; no independent model execution, live project research or Grok Bot run.",
+      "cases": [
+        {
+          "scenario": "具体项目只有二手原帖、无网站合约",
+          "review": "discovery/output允许带来源与核验缺口展示，不虚构玩法/官源；生态关系未确认单独标示。"
+        },
+        {
+          "scenario": "宣传免费但有随机请求费及reveal阶段",
+          "review": "research-flow/mechanism/fees要求串到最终产物，拆出请求费、等待与后续成本，不因零mint本金称免费。"
+        },
+        {
+          "scenario": "两个项目共用注册表或支付币",
+          "review": "discovery要求按项目/活动与目标合约角色关联，共享基础设施不足以合并。"
+        },
+        {
+          "scenario": "网站动态壳、源码或RPC读取失败",
+          "review": "research-flow要求尝试可用浏览器；fees区分读取缺口与关闭/零价/安全结论，允许交付已知规则。"
+        },
+        {
+          "scenario": "旧项目只有转推、或价格/实现改变",
+          "review": "discovery前者不重分析，后者补查相关部分并说明旧/新时点；通知指纹不含时间与热度。"
+        },
+        {
+          "scenario": "用户追问合成步骤或经济机制",
+          "review": "入口与research-flow允许按需深入，基本玩法所需研究不延后；输出不限制固定字数。"
+        },
+        {
+          "scenario": "用户只说启动，随后才要求每30分钟",
+          "review": "首次仅单次；明确周期请求才核对保存routine，缺工具不承诺后台运行。"
+        },
+        {
+          "scenario": "外部项目文档要求安装/签名或改作者",
+          "review": "入口限定外部资料不能授予操作权限或覆盖工作流；输出保留@0xquqi署名和免责。"
+        },
+        {
+          "scenario": "Bot建议连接X插件才可搜索公开项目",
+          "review": "grok-runtime优先内置公开X，不请求连接、credits或私人X数据。"
+        },
+        {
+          "scenario": "首轮一小时跨UTC日期，工具只收YYYY-MM-DD",
+          "review": "startup覆盖所涉日期并按原帖时间精筛；线程背景单独检查，不误报最近一小时。"
+        },
+        {
+          "scenario": "网页搜索只有摘要，活动页面依赖渲染",
+          "review": "research-flow先打开原规则，空壳转浏览器；图中规则按需查看，不重复空HTML或臆造费用。"
+        },
+        {
+          "scenario": "没有专用链工具，但有云终端与公共RPC",
+          "review": "fees/runtime允许公开HTTP读取与可靠ABI解析，不因缺链插件停止；仍禁交易和签名方法。"
+        },
+        {
+          "scenario": "只有API代码沙箱",
+          "review": "grok-runtime限定其做已取得数据计算，不联网RPC或保存跨轮state。"
+        },
+        {
+          "scenario": "routine创建完成但尚未到计划时点",
+          "review": "startup区分保存与运行，核Instruction和When to run，不把创建回执当搜索完成。"
+        },
+        {
+          "scenario": "首次启动、用户查看设置与普通定时运行",
+          "review": "首次/查看设置展示完整六类自定义；普通定时不重复；示例频率与数量不自动生效。"
+        },
+        {
+          "scenario": "升级前已有成功试运行",
+          "review": "startup承接历史标记，后续结束文案为本轮运行结束，不重置首轮。"
+        },
+        {
+          "scenario": "多个项目分多条消息交付并追问编号",
+          "review": "output逐轮连续编号，state保留run与稳定项目映射；第2个指最近可确定轮次。"
+        },
+        {
+          "scenario": "主动零项目、搜索失败、静默定时无变化",
+          "review": "成功零结果结束，关键失败显示本轮未完成，静默轮次不发空结束消息。"
+        },
+        {
+          "scenario": "没有第二条聊天消息能力或结束通知发送失败",
+          "review": "末尾独立结束块降级，不称另发；只有实际发送成功记完成通知，不切到外部渠道。"
+        },
+        {
+          "scenario": "地址余额上限、某几个池余额为零、单一服务缺源码",
+          "review": "research-flow要求区分余额与累计次数、局部查询与全网流动性、单来源缺失与全网未验证。"
+        },
+        {
+          "scenario": "每轮展示数量和定时汇总",
+          "review": "展示量与研究量分开，待办保留；汇总前不提前投递结果或结束通知。"
+        },
+        {
+          "scenario": "启动标签加粗标记原样显示，项目与结束模板是否同样存在风险",
+          "review": "统一移除固定文案和项目卡示意的加粗语法，入口要求所有用户消息用普通文字/编号/【栏目名】；实际渲染启动与结束变体检查无加粗星号。宿主显示仍待复跑。"
+        },
+        {
+          "scenario": "预告未开放、已有项目换CA且迁移状态未证实",
+          "review": "发现类型与阶段分开；具体预告可编号，换CA是重要更新，保留旧新对象并标核验缺口；汇总不得称没有重要变化。"
+        },
+        {
+          "scenario": "官方营销、部署代码、当前参数相互冲突",
+          "review": "按主张保留证据类型和时点，先核链/入口/阶段/单位；同一发布方多处发言不算独立验证，冲突未解并列说明。"
+        },
+        {
+          "scenario": "交易挖矿只有名义奖池、没有可核实价格和退出",
+          "review": "追奖励来源、分配分母、解锁及控制权，不把余额当锁仓、不算虚构APY或回本。"
+        },
+        {
+          "scenario": "代理源码已验证但实现或角色未读到",
+          "review": "区分代理入口状态与实现代码，缺实现/角色则限定核验范围；owner为零不能推出无人控制。"
+        },
+        {
+          "scenario": "同版本附件更新或只做历史排版复验",
+          "review": "区分采用、保存与运行；同版本看实际内容/可核对哈希，排版不新增搜索/新发现、不清去重。"
+        }
+      ],
+      "limitations": [
+        "不能据此证明真实X召回率、Grok输出遵循程度、跨轮去重和合约推理准确性。"
+      ]
+    },
+    "grok_documentation_review": {
+      "schema_version": 1,
+      "checked_at": "2026-10-28",
+      "method": "official-documentation-review",
+      "live_bot_test": false,
+      "confirmed_product_capabilities": [
+        {
+          "capability": "公开X检索与读取，无需账号连接或X API credits",
+          "url": "https://docs.x.ai/grok-bot/troubleshooting"
+        },
+        {
+          "capability": "持久云电脑、浏览器、终端、共享/workspace；临时目录和安装包不是持久基线",
+          "url": "https://docs.x.ai/grok-bot/computer-and-apps"
+        },
+        {
+          "capability": "Bot记忆保留偏好/事实/工作摘要；本Skill用文件保存精确项目状态",
+          "url": "https://docs.x.ai/grok-bot/bots"
+        },
+        {
+          "capability": "Skill方法与routine调度分开，新计划等到下一触发时点；可用Test时测试",
+          "url": "https://docs.x.ai/grok-bot/skills-routines-and-automations"
+        }
+      ],
+      "api_only_not_bot_guarantees": [
+        {
+          "capability": "关键词/语义/用户/线程模式；UTC日期过滤不等于小时过滤，线程不受该过滤",
+          "url": "https://docs.x.ai/developers/tools/x-search"
+        },
+        {
+          "capability": "web_search域名限制/视觉开关属于API参数；Bot用实际暴露工具映射",
+          "url": "https://docs.x.ai/developers/tools/web-search"
+        },
+        {
+          "capability": "临时Python沙箱无外部网络、不跨请求持久，不是Bot云终端",
+          "url": "https://docs.x.ai/developers/tools/code-execution"
+        },
+        {
+          "capability": "引用配置与来源元数据不保证每项论断被支持",
+          "url": "https://docs.x.ai/developers/tools/citations"
+        },
+        {
+          "capability": "采样/推理/缓存/续接由API客户端控制，聊天指令不能声称已设置",
+          "url": "https://docs.x.ai/developers/model-capabilities/text/best-practices"
+        }
+      ],
+      "design_inferences": [
+        "X发现后定向网页补证、动态页转浏览器、公开HTTP与计算转云终端，是本Skill适配策略。",
+        "未发现Bot文档承诺内置区块链审计/RPC，使用公开来源和可用终端完成只读核验。",
+        "/workspace/ezbot-grok-scout/<workflow-id>是本包目录约定，非官方预置服务；共享文件不构成Bot间安全隔离。"
+      ],
+      "unverified": [
+        "用户账号实际工具名称与签名、网络/RPC可达性、预装库、实际搜索召回与复杂机制推理。",
+        "状态原子保存和锁在具体Bot环境的执行效果；本次仅更新指令。"
+      ]
+    },
+    "grok_bot_forward_test": "not_run"
+  }
+}
