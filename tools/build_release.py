@@ -20,6 +20,23 @@ ORDER = ['SKILL.md', 'assets/defaults.json', 'assets/messages.json',
 def sha(data):
     return hashlib.sha256(data).hexdigest()
 
+def archive_bytes(files):
+    buffer = BytesIO()
+    with zipfile.ZipFile(buffer, 'w', zipfile.ZIP_DEFLATED) as z:
+        for rel, data in files.items():
+            info = zipfile.ZipInfo(rel, (2026, 10, 28, 0, 0, 0))
+            info.compress_type = zipfile.ZIP_DEFLATED
+            info.external_attr = 0o100644 << 16
+            z.writestr(info, data)
+    return buffer.getvalue()
+
+def check_archive(path, expected):
+    with zipfile.ZipFile(path) as z:
+        assert z.testzip() is None
+        assert len(z.namelist()) == len(expected)
+        assert set(z.namelist()) == set(expected)
+        assert all(z.read(name) == data for name, data in expected.items())
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--check', action='store_true')
@@ -96,8 +113,13 @@ def main():
     provenance=json.loads((ROOT/'evaluation/source-provenance.json').read_text())
     review=json.loads((ROOT/'evaluation/review.json').read_text())
     assert review['version'] == version and review['method'] == 'manual-rule-review'
-    manifest={'schema_version':3,'version':version,'skill_content_sha256':content_id,
+    skill_files = {f'{SKILL.name}/{rel}': docs[rel].encode('utf-8') for rel in ORDER}
+    skill_files[f'{SKILL.name}/LICENSE'] = files['LICENSE']
+    skill_archive = ROOT/f'{SKILL.name}-skill-v{version}.zip'
+    skill_archive_data = archive_bytes(skill_files)
+    manifest={'schema_version':4,'version':version,'skill_content_sha256':content_id,
       'files':{rel:sha(data) for rel,data in files.items()},'upstream':provenance,
+      'skill_package':{'filename':skill_archive.name,'sha256':sha(skill_archive_data),'files':list(skill_files)},
       'validation':{'yaml_parser':'Ruby Psych safe_load','frontmatter_constraints':'passed',
         'local_links':{'status':'passed','count':links},'configuration':'passed',
         'startup_rendering':'passed',
@@ -118,22 +140,14 @@ def main():
     else:
         (ROOT/'GrokBot完整提示词.txt').write_bytes(files['GrokBot完整提示词.txt'])
         (ROOT/'交付校验.json').write_bytes(manifest_bytes)
-        buffer=BytesIO()
-        with zipfile.ZipFile(buffer,'w',zipfile.ZIP_DEFLATED) as z:
-            for rel,data in files.items():
-                info=zipfile.ZipInfo(f'EZbot-Grok-Scout-v{version}/{rel}',(2026,10,28,0,0,0))
-                info.compress_type=zipfile.ZIP_DEFLATED
-                info.external_attr=0o100644 << 16
-                z.writestr(info,data)
-        archive.write_bytes(buffer.getvalue())
-    with zipfile.ZipFile(archive) as z:
-        assert z.testzip() is None
-        expected={f'EZbot-Grok-Scout-v{version}/{rel}':data for rel,data in files.items()}
-        assert set(z.namelist()) == set(expected)
-        assert all(z.read(name)==data for name,data in expected.items())
+        archive.write_bytes(archive_bytes({f'EZbot-Grok-Scout-v{version}/{rel}': data for rel, data in files.items()}))
+        skill_archive.write_bytes(skill_archive_data)
+    check_archive(archive, {f'EZbot-Grok-Scout-v{version}/{rel}': data for rel, data in files.items()})
+    check_archive(skill_archive, skill_files)
+    assert skill_archive.read_bytes() == skill_archive_data, 'Stale Skill archive'
     print(json.dumps({'version':version,'mode':'check' if args.check else 'build','files':len(files),
         'prompt_characters':len(prompt),'zip_bytes':archive.stat().st_size,
-        'zip_sha256':sha(archive.read_bytes()),'result':'passed','grok_bot_test':'not_run'},ensure_ascii=False))
+        'zip_sha256':sha(archive.read_bytes()),'skill_zip':skill_archive.name,'skill_zip_sha256':sha(skill_archive.read_bytes()),'result':'passed','grok_bot_test':'not_run'},ensure_ascii=False))
 
 if __name__=='__main__':
     main()

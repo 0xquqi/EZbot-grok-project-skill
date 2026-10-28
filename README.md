@@ -2,9 +2,19 @@
 
 在 Grok Bot 中发现币安 Agent ID / Agentic Wallet 生态的具体项目，并研究玩法、资格、成本、产物、关键权限和退出条件。作者：[@0xquqi](https://x.com/0xquqi)。
 
+## 安全与免责声明（使用前请阅读）
+
+> 本内容为公开信息整理与有限研究，仅供参考，不构成投资建议或安全认证。请自主完成项目实际投研；作者不对项目安全、收益或履约提供保障。
+
+项目被收录、源码验证通过或完成有限风险检查，都不代表作者推荐参与或为项目背书。请自主核实项目和参与条件；本 Skill 不连接钱包，不签名、授权、模拟或执行交易。
+
+这段提示同时保留在首次启动说明与项目结果中；多项目同一回复末尾展示一次，独立卡片或导出结果也保留。MIT 开源许可不改变上述研究边界。
+
 ## 开始使用
 
-下载 [GrokBot完整提示词.txt](GrokBot完整提示词.txt)，作为可读取附件交给 Grok Bot，再发送：
+下载 [Skill 安装包：ezbot-grok-scout-skill-v0.1.zip](ezbot-grok-scout-skill-v0.1.zip)。解压后得到 `ezbot-grok-scout/`，根目录是 `SKILL.md`，并含完整 `references/`、`assets/` 和 `LICENSE`；可供支持该目录结构的宿主读取。Grok Bot 是否能直接解析 ZIP 以实际工具为准，不能把上传成功当作安装成功。
+
+在 Grok Bot 中直接使用时，可下载 [GrokBot完整提示词.txt](GrokBot完整提示词.txt)，作为可读取附件交给 Grok Bot，再发送：
 
 > 请按附件中的 EZbot v0.1 工作流，搜索最近1小时的币安 Agent ID / Agentic Wallet 生态具体项目。自动查清理解玩法所需的规则、成本、产物和关键风险，直接在聊天里按编号介绍；资料不足说明缺口。本次只运行一轮。
 
@@ -31,7 +41,7 @@
 ## 目录与校验
 
 - `skills/ezbot-grok-scout/`：Skill 入口、参考流程与默认文案。
-- `tools/build_release.py`：生成完整提示词、哈希清单和当前 ZIP，并检查一致性。
+- `tools/build_release.py`：生成完整提示词、哈希清单、独立 Skill 包和完整资料包，并检查一致性。
 - `evaluation/`：来源记录、人工情境审阅和审计说明。
 
 构建需 Python 3.10+ 与 Ruby（使用标准库 Psych 解析 YAML）；Bot 使用文本附件时不需要本地构建工具。
@@ -45,5 +55,3 @@ python3 -m unittest discover -s tests -v
 版本保持 v0.1。历史包、用户截图、聊天记录、运行状态及凭证不属于仓库交付。测试范围见 [审计记录](evaluation/audit-v0.1.md)：结构/打包和人工规则审阅通过不代表 Grok 真实召回、推理、跨轮去重已通过线上测试。
 
 方法适配自同作者的 [EZbot-project-research-skill](https://github.com/0xquqi/EZbot-project-research-skill)，来源与具体读取快照见 [来源说明](skills/ezbot-grok-scout/references/sources.md)。沿用 MIT 许可及作者版权声明，见 [LICENSE](LICENSE)。
-
-本内容为公开信息整理与有限研究，仅供参考，不构成投资建议或安全认证。请自主完成项目实际投研；作者不对项目安全、收益或履约提供保障。

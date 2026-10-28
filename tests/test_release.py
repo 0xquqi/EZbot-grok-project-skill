@@ -45,6 +45,18 @@ class ReleaseTests(unittest.TestCase):
             self.assertTrue(any(name.endswith('/LICENSE') for name in names))
             self.assertFalse(any(name.endswith('/state.json') or name.endswith('/old-release.zip') for name in names))
 
+    def test_skill_archive_has_installable_directory_and_rejects_extra_files(self):
+        archive = self.root / 'ezbot-grok-scout-skill-v0.1.zip'
+        with zipfile.ZipFile(archive) as package:
+            names = package.namelist()
+            self.assertIn('ezbot-grok-scout/SKILL.md', names)
+            self.assertIn('ezbot-grok-scout/LICENSE', names)
+            self.assertEqual(len(names), 12)
+            self.assertTrue(all(name.startswith('ezbot-grok-scout/') for name in names))
+        with zipfile.ZipFile(archive, 'a') as package:
+            package.writestr('unexpected.txt', 'not part of skill')
+        self.run_build('--check', success=False)
+
     def test_stale_source_is_rejected(self):
         path = self.root / 'skills/ezbot-grok-scout/references/research-flow.md'
         path.write_text(path.read_text() + '\nNew research rule.\n')

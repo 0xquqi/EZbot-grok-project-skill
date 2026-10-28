@@ -1,5 +1,5 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "version": "0.1",
   "skill_content_sha256": "7356cc00958d1e22ea047a4d5c0fb25f98a8cc73b0bd14abdb32d76f4f41d051",
   "files": {
@@ -15,7 +15,7 @@
     "skills/ezbot-grok-scout/references/output.md": "94cf360e0643f43eb8d136f9d584bbb31ddfd3f7039361a33a555616a927de70",
     "skills/ezbot-grok-scout/references/sources.md": "88361b9c25bc8bf81831c385e4f21da7648babbeb4faa75a68e11eec54a101be",
     "GrokBot完整提示词.txt": "82aa26817d27bfbd94909da6d98ce9e4f1980173ee0f7cafc78b3c53382c3510",
-    "开始使用.txt": "956b2050548d2161a9bb5c0d5ef932356934b6f0be3d183c7903c63ed89d4ef5",
+    "开始使用.txt": "e7ea021fd88d78c045fca675a187546547d91c1a0c4ff7bba4336e698ab76a2f",
     "给现有Grok对话的纠正指令.txt": "6909fa5a518197d54ecaa7a68700dc442c29127333929ac8005d28182599a540",
     "LICENSE": "f09bb03e762d55c9796ffbe5f627adb39a56c09e97ef7c94708674ae217d4ec2"
   },
@@ -33,6 +33,24 @@
       "skills/ezbot-project-research/references/participation.md": "99e7ffab510eb287cce2a38b3b9c4c374ae5bd4224e6c7c764713c0650e5bffa",
       "skills/ezbot-project-research/references/question-cards.json": "7447052740430ab87e29f38ff5ada6025f8f9e40b5f1e10a068cdeb69503319c"
     }
+  },
+  "skill_package": {
+    "filename": "ezbot-grok-scout-skill-v0.1.zip",
+    "sha256": "46053d14fdbd215cbf17bfe6f2553287e9ff2a135b1b1b002691962b9eec3a5a",
+    "files": [
+      "ezbot-grok-scout/SKILL.md",
+      "ezbot-grok-scout/assets/defaults.json",
+      "ezbot-grok-scout/assets/messages.json",
+      "ezbot-grok-scout/references/grok-runtime.md",
+      "ezbot-grok-scout/references/startup.md",
+      "ezbot-grok-scout/references/discovery-state.md",
+      "ezbot-grok-scout/references/research-flow.md",
+      "ezbot-grok-scout/references/mechanism-questions.md",
+      "ezbot-grok-scout/references/fees-contracts.md",
+      "ezbot-grok-scout/references/output.md",
+      "ezbot-grok-scout/references/sources.md",
+      "ezbot-grok-scout/LICENSE"
+    ]
   },
   "validation": {
     "yaml_parser": "Ruby Psych safe_load",
